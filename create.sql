@@ -105,6 +105,7 @@ INSERT INTO `plang`.`lang` (`idlang`, `designation`, `created`) VALUES
     (NULL, 'F#', 2005),
     (NULL, 'HolyC', 2005),
     (NULL, 'PowerShell', 2006),
+    (NULL, 'Newspeak', 2006),
     (NULL, 'Clojure', 2007),
     (NULL, 'Nim', 2008),
     (NULL, 'Go', 2009),
@@ -158,14 +159,13 @@ INSERT INTO `plang`.`author` (`idauthor`, `firstname`, `surname`, `company`) VAL
     (NULL, 'Philip', 'Wadler', NULL),
     (NULL, 'Niklaus', 'Wirth', NULL),
     (NULL, 'Stephen', 'Wolfram', NULL);
-
 INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
     SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
     WHERE `lang`.`designation` = 'FORTRAN' AND `author`.`surname` = 'Backus'; 
 
 INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
     SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'ALGOL' AND `author`.`surname` = 'Bauer';
+    WHERE `lang`.`designation` = 'ALGOL 58' AND `author`.`surname` = 'Bauer';
 
 INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
     SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
@@ -190,4 +190,3 @@ INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor
 INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
     SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
     WHERE `lang`.`designation` = 'Smalltalk' AND `author`.`surname` = 'Kay';
-
