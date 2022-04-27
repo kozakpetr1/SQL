@@ -1,14 +1,3 @@
-SELECT * FROM `plang`.`lang`, `plang`.`author`
-INNER JOIN `plang`.`createdby`
-WHERE `createdby`.`lang_idlang` = `lang`.`idlang`
-AND `createdby`.`author_idauthor` = `author`.`idauthor`;
-
-SELECT `lang`.`designation`, `author`.`firstname`, `author`.`surname`
-FROM `plang`.`lang`, `plang`.`author`
-INNER JOIN `plang`.`createdby`
-WHERE `createdby`.`lang_idlang` = `lang`.`idlang`
-AND `createdby`.`author_idauthor` = `author`.`idauthor`;
-
 SELECT *
 FROM `plang`.`lang`
 JOIN `plang`.`createdby`
@@ -43,3 +32,14 @@ SELECT * FROM `plang`.`lang` WHERE `lang`.`idlang` BETWEEN 6 AND 8;
 SELECT * FROM `plang`.`lang` WHERE `lang`.`idlang` BETWEEN 5 AND 7
 UNION ALL
 SELECT * FROM `plang`.`lang` WHERE `lang`.`idlang` BETWEEN 6 AND 8;
+
+SELECT * FROM `plang`.`lang`, `plang`.`author`
+INNER JOIN `plang`.`createdby`
+WHERE `createdby`.`lang_idlang` = `lang`.`idlang`
+AND `createdby`.`author_idauthor` = `author`.`idauthor`;
+
+SELECT `lang`.`designation`, `author`.`firstname`, `author`.`surname`
+FROM `plang`.`lang`, `plang`.`author`
+INNER JOIN `plang`.`createdby`
+WHERE `createdby`.`lang_idlang` = `lang`.`idlang`
+AND `createdby`.`author_idauthor` = `author`.`idauthor`;
