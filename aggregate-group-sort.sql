@@ -6,7 +6,7 @@ FROM `plang`.`lang`
 WHERE `created`=1995;
 
 -- --------------------------------------------------------------------------------
--- COUNT - agregační funkce vrací průměrnou hodnotu ve vybraném numerickém sloupci
+-- AVG - agregační funkce vrací průměrnou hodnotu ve vybraném numerickém sloupci
 -- --------------------------------------------------------------------------------
 SELECT CONVERT(AVG(`created`), DECIMAL(10,2)) AS `prumer-1995-2014`
 FROM `plang`.`lang`
