@@ -25,8 +25,8 @@ FROM plang.lang;
 SELECT * FROM plang.author
 ORDER BY
     (CASE
-        WHEN Company IS NULL THEN surname
-        ELSE Company
+        WHEN company IS NULL THEN surname
+        ELSE company
     END) ASC;
 
 SELECT
