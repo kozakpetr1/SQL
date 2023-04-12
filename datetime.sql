@@ -7,6 +7,7 @@ SELECT CURDATE() AS now,
     MONTHNAME(CURDATE()) AS month,
     DAYNAME(CURDATE()) AS day;
 SET @cdate = CURDATE();
+SET lc_time_names = 'cs_CZ';
 SELECT @cdate AS now,
     MONTHNAME(@cdate) AS month,
     DAYNAME(@cdate) AS day;

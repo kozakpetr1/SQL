@@ -13,8 +13,7 @@ WHERE
     lang.idlang = createdby.lang_idlang
     AND author.idauthor = createdby.author_idauthor;
 
-SELECT *
-FROM plang.lang
+SELECT * FROM plang.lang
 INNER JOIN plang.createdby
 ON lang.idlang = createdby.lang_idlang;
 
