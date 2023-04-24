@@ -54,3 +54,5 @@ ORDER BY designation ASC;
 SELECT firstname, surname FROM plang.author
 WHERE surname LIKE "B%"
 ORDER BY surname DESC;
+
+SELECT COUNT(DISTINCT firstname) FROM plang.author; 

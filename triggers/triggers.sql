@@ -31,13 +31,17 @@ FOR EACH ROW
 INSERT INTO voter (id, firstname, lastname, age, alive)
 VALUES (NULL, 'Petr', 'Kozák', 49, 1);
 
+CREATE TRIGGER ins_sum BEFORE INSERT ON account
+FOR EACH ROW SET @sum = @sum + NEW.amount;
+
 INSERT INTO voter (id, firstname, lastname, age, alive) VALUES
     (NULL, 'Jana', 'Nováková', 25, 1),
     (NULL, 'Klaudius', 'Picmaus', 19, 1),
     (NULL, 'Pavel', 'Uc', 31, 1);
 
 INSERT INTO voter (id, firstname, lastname, age, alive)
-values (NULL, 'Klaudius', 'Picmaus', '73', '0');
+VALUES (NULL, 'Klaudius', 'Picmaus', '73', '0');
 
 INSERT INTO voter (id, firstname, lastname, age, alive)
-values (NULL, 'Eva', 'Rychlá', '17', '0');
+VALUES (NULL, 'Eva', 'Rychlá', '17', '0');
+
