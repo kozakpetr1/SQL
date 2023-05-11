@@ -13,21 +13,23 @@ CREATE TABLE IF NOT EXISTS voter (
     PRIMARY KEY (id))
 ENGINE = InnoDB;
 
+DELIMITER //
 # Trigger - spouštěč
 CREATE TRIGGER check_new_voter BEFORE INSERT
 ON voter
 FOR EACH ROW
     IF NEW.age < 18 THEN
         SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = 'Voter must be older than 18.'
-    END IF;
-delimiter ;
+    END IF //
+
 CREATE TRIGGER check_voter_alive BEFORE INSERT
 ON voter
 FOR EACH ROW
     IF NEW.alive = 0 THEN
         SIGNAL SQLSTATE '50002' SET MESSAGE_TEXT = 'Voter must be alive.';
-    END IF;
+    END IF //
 
+DELIMITER ;
 INSERT INTO voter (id, firstname, lastname, age, alive)
 VALUES (NULL, 'Petr', 'Kozák', 49, 1);
 
