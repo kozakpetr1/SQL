@@ -19,7 +19,7 @@ CREATE TRIGGER check_new_voter BEFORE INSERT
 ON voter
 FOR EACH ROW
     IF NEW.age < 18 THEN
-        SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = 'Voter must be older than 18.'
+        SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = 'Voter must be older than 18.';
     END IF //
 
 CREATE TRIGGER check_voter_alive BEFORE INSERT
@@ -33,12 +33,9 @@ DELIMITER ;
 INSERT INTO voter (id, firstname, lastname, age, alive)
 VALUES (NULL, 'Petr', 'Kozák', 49, 1);
 
-CREATE TRIGGER ins_sum BEFORE INSERT ON account
-FOR EACH ROW SET @sum = @sum + NEW.amount;
-
 INSERT INTO voter (id, firstname, lastname, age, alive) VALUES
     (NULL, 'Jana', 'Nováková', 25, 1),
-    (NULL, 'Klaudius', 'Picmaus', 19, 1),
+    (NULL, 'Tomáš', 'Marný', 19, 1),
     (NULL, 'Pavel', 'Uc', 31, 1);
 
 INSERT INTO voter (id, firstname, lastname, age, alive)
