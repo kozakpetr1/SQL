@@ -1,6 +1,37 @@
 # Propojení dvou tabulek pomocí klauzule JOIN (INNER JOIN).
 # Dotaz vrátí jazyky, jejich autory a roky vzniku.
 
+SELECT
+    lang.idlang,
+    createdby.author_idauthor,
+    lang.designation,
+    lang.created
+FROM plang.lang
+INNER JOIN plang.createdby
+ON lang.idlang = createdby.lang_idlang;
+
+SELECT
+    lang.idlang,
+    createdby.author_idauthor,
+    lang.designation,
+    lang.created
+FROM plang.lang
+LEFT JOIN plang.createdby
+ON lang.idlang = createdby.lang_idlang;
+
+SELECT
+    lang.idlang,
+    createdby.author_idauthor,
+    lang.designation,
+    lang.created
+FROM plang.lang
+RIGHT JOIN plang.createdby
+ON lang.idlang = createdby.lang_idlang;
+
+SELECT * FROM plang.lang
+FULL JOIN plang.createdby
+ON lang.idlang = createdby.lang_idlang;
+
 SELECT 
     lang.designation AS programming_language,
     CONCAT(UPPER(surname), " ", firstname) AS author,
@@ -12,10 +43,6 @@ INNER JOIN
 WHERE
     lang.idlang = createdby.lang_idlang
     AND author.idauthor = createdby.author_idauthor;
-
-SELECT * FROM plang.lang
-INNER JOIN plang.createdby
-ON lang.idlang = createdby.lang_idlang;
 
 SELECT *
 FROM plang.lang, plang.createdby

@@ -1,7 +1,7 @@
 -- -----------------------------------------------------
 -- DML - základní syntaxe dotazu UPDATE
 -- -----------------------------------------------------
-UPDATE `plang`.`author`
+UPDATE plang.author
 SET company = 'Bell Labs'
 WHERE surname = 'Kernighan' AND firstname = 'Brian';
 

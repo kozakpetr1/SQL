@@ -1,3 +1,6 @@
+# automatizovaná událost (spouštěč) vyvolaná definovanou akcí nad tabulkou
+# CREATE | REPLACE TRIGGER
+
 CREATE SCHEMA
 IF NOT EXISTS person
 DEFAULT CHARACTER SET utf8 COLLATE utf8_czech_ci;
@@ -31,7 +34,7 @@ FOR EACH ROW
 
 DELIMITER ;
 INSERT INTO voter (id, firstname, lastname, age, alive)
-VALUES (NULL, 'Petr', 'Kozák', 49, 1);
+VALUES (NULL, 'Petr', 'Kozák', 50, 1);
 
 INSERT INTO voter (id, firstname, lastname, age, alive) VALUES
     (NULL, 'Jana', 'Nováková', 25, 1),
@@ -42,5 +45,5 @@ INSERT INTO voter (id, firstname, lastname, age, alive)
 VALUES (NULL, 'Klaudius', 'Picmaus', '73', '0');
 
 INSERT INTO voter (id, firstname, lastname, age, alive)
-VALUES (NULL, 'Eva', 'Rychlá', '17', '0');
+VALUES (NULL, 'Eva', 'Rychlá', '17', '1');
 

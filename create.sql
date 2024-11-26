@@ -30,15 +30,30 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `plang`.`createdby`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `plang`.`createdby` (
-    `idcreatedby` INT NOT NULL AUTO_INCREMENT,
-    `lang_idlang` INT NOT NULL,
-    `author_idauthor` INT NOT NULL,
-    INDEX `fk_createdby_lang_idx` (`lang_idlang` ASC),
-    INDEX `fk_createdby_author_idx` (`author_idauthor` ASC),
-    PRIMARY KEY (`idcreatedby`))
+CREATE TABLE IF NOT EXISTS plang.createdby (
+    idcreatedby INT NOT NULL AUTO_INCREMENT,
+    lang_idlang INT NOT NULL,
+    author_idauthor INT NOT NULL,
+    INDEX fk_createdby_lang_idx (lang_idlang ASC),
+    INDEX fk_createdby_author_idx (author_idauthor ASC),
+    PRIMARY KEY (idcreatedby)
+)
 ENGINE = InnoDB;
 
+DROP PROCEDURE IF EXISTS add_author;
+DELIMITER //
+CREATE PROCEDURE add_author
+    (
+        IN fname VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin',
+        IN sname VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin',
+        IN compa VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_bin'
+    )
+    BEGIN
+        INSERT INTO plang.author (idauthor, firstname, surname, company)
+        VALUES (NULL, fname, sname, compa);
+    END //
+
+DELIMITER ;
 INSERT INTO `plang`.`lang` (`idlang`, `designation`, `created`) VALUES
     (NULL, 'Regional Assembly Language', 1951),
     (NULL, 'Autocode', 1952),

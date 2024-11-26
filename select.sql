@@ -15,7 +15,7 @@ SELECT * FROM plang.lang
 WHERE designation = "COBOL";
 
 SELECT * FROM plang.lang
-WHERE idlang < 10;
+WHERE idlang = 10;
 
 SELECT * FROM plang.lang
 WHERE idlang > 10
@@ -47,8 +47,7 @@ WHERE designation LIKE "C%" AND
     NOT idlang < 20;
 
 SELECT idlang, designation FROM plang.lang
-WHERE designation LIKE "C%" AND
-    NOT idlang < 20
+WHERE NOT idlang < 20
 ORDER BY designation ASC;
 
 SELECT firstname, surname FROM plang.author
