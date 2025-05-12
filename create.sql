@@ -9,7 +9,7 @@ USE `plang`;
 -- Table `plang`.`lang`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `plang`.`lang` (
-    `idlang` INT NOT NULL AUTO_INCREMENT,
+    idlang INT NOT NULL AUTO_INCREMENT,
     `designation` VARCHAR(30) NOT NULL,
     `created` INT NULL,
     PRIMARY KEY (`idlang`))

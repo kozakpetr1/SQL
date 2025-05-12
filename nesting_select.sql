@@ -1,7 +1,7 @@
 # VNOŘOVÁNÍ DOTAZŮ
 
 # Dotaz s vnořeným dotazem vrátí seznam všech autorů
-# jazyka C (lang_idlang = 26). Vnořený dotaz (vnitřní)
+# jazyka Prolog (lang_idlang = 28). Vnořený dotaz (vnitřní)
 # je proveden jako první. Jeho výstup je použit v dotazu
 # vnějším.
 # Za klauzulí IN je množina hodnot identifikátorů
@@ -9,7 +9,7 @@
 # Klauzule IN nahrazuje zápis pomocí OR, který by byl mnohem delší.
 
 SELECT 
-    CONCAT(UPPER(surname), " ", firstname)
+    CONCAT(UPPER(surname), " ", firstname) AS name
 FROM
     plang.author
 WHERE
@@ -18,7 +18,8 @@ WHERE
         FROM
             plang.createdby
         WHERE
-            lang_idlang = 26);
+#            lang_idlang = 28 OR lang_idlang = 27);
+            lang_idlang BETWEEN 27 AND 28);
 
 # Dotaz s vnořeným dotazem vrátí seznam všech autorů,
 # kteří nemají v databázi přiřazen žádný programovací jazyk,
