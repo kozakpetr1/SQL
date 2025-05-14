@@ -24,10 +24,10 @@ CREATE TABLE owners (
     zip_code VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE vehicles (
+CREATE TABLE cars (
     id INT AUTO_INCREMENT PRIMARY KEY,
     vin_code VARCHAR(50) UNIQUE NOT NULL,
-    engine VARCHAR(50) NOT NULL,
+    engine_model VARCHAR(50) NOT NULL,
     manufactured_in INT NOT NULL,
     id_model INT NOT NULL,
     id_owner INT NOT NULL,
@@ -61,7 +61,7 @@ INSERT INTO owners (first_name, last_name, birthday, city, street, house_number,
 ('Josef', 'Král', '1968-04-17', 'Plzeň', 'Kratká', '8', '30100'),
 ('Eva', 'Procházková', '1985-09-02', 'Liberec', 'Střední', '14', '46001');
 
-INSERT INTO vehicles (vin_code, engine, manufactured_in, id_model, id_owner) VALUES 
+INSERT INTO cars (vin_code, engine, manufactured_in, id_model, id_owner) VALUES 
 ('1HGCM82633A123456', '1.8 TSI', 2021, 1, 1),
 ('2HGFB2F50DH123456', '2.0 TDI', 2022, 2, 2),
 ('3VWFE21C04M000001', '1.5 TGDI', 2020, 3, 3),
