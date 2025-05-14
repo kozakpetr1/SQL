@@ -4,6 +4,11 @@
 
 Cílem této úlohy je seznámit se s konceptem Object-Relational Mapping (ORM) v PHP, vybrat si jednu z dostupných knihoven ORM a implementovat základní operace s databází MySQL nebo MariaDB.
 
+https://github.com/kozakpetr1/SQL/tree/main/examples/vehicles
+
+   * create.sql - SQL Create Script databáze `vehicles`
+   * ORM.md - zadání úkolu
+
 ---
 
 ## Zadání:
@@ -13,6 +18,7 @@ Cílem této úlohy je seznámit se s konceptem Object-Relational Mapping (ORM) 
    * Doctrine ORM
    * Eloquent (Laravel)
    * Propel ORM
+   * jiný
 
 2. **Připojení k databázi:** Vytvořte skript, který se připojí k databázi `vehicles` (MySQL nebo MariaDB) pomocí zvoleného ORM.
 
