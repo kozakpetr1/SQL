@@ -4,6 +4,10 @@ FROM plang.author;
 SELECT *
 FROM plang.lang;
 
+SELECT designation FROM plang.lang;
+
+SELECT created, designation FROM plang.lang;
+
 SELECT
     COUNT(DISTINCT firstname) AS pocet
 FROM plang.author;

@@ -1,34 +1,34 @@
 -- -----------------------------------------------------
 -- Schema plang - databáze programovacích jazyků
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `plang` DEFAULT CHARACTER SET utf8 COLLATE utf8_czech_ci;
+CREATE SCHEMA IF NOT EXISTS plang DEFAULT CHARACTER SET utf8 COLLATE utf8_czech_ci;
 
-USE `plang`;
+USE plang;
 
 -- -----------------------------------------------------
--- Table `plang`.`lang`
+-- Table plang.lang
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `plang`.`lang` (
+CREATE TABLE IF NOT EXISTS plang.lang (
     idlang INT NOT NULL AUTO_INCREMENT,
-    `designation` VARCHAR(30) NOT NULL,
-    `created` INT NULL,
-    PRIMARY KEY (`idlang`))
+    designation VARCHAR(30) NOT NULL,
+    created INT NULL,
+    PRIMARY KEY (idlang))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `plang`.`author`
+-- Table plang.author
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `plang`.`author` (
-    `idauthor` INT NOT NULL AUTO_INCREMENT,
-    `firstname` VARCHAR(30) NULL,
-    `surname` VARCHAR(40) NULL,
-    `company` VARCHAR(40) NULL,
-    PRIMARY KEY (`idauthor`))
+CREATE TABLE IF NOT EXISTS plang.author (
+    idauthor INT NOT NULL AUTO_INCREMENT,
+    firstname VARCHAR(30) NULL,
+    surname VARCHAR(40) NULL,
+    company VARCHAR(40) NULL,
+    PRIMARY KEY (idauthor))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `plang`.`createdby`
+-- Table plang.createdby
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS plang.createdby (
     idcreatedby INT NOT NULL AUTO_INCREMENT,
@@ -54,7 +54,7 @@ CREATE PROCEDURE add_author
     END //
 
 DELIMITER ;
-INSERT INTO `plang`.`lang` (`idlang`, `designation`, `created`) VALUES
+INSERT INTO plang.lang (idlang, designation, created) VALUES
     (NULL, 'Regional Assembly Language', 1951),
     (NULL, 'Autocode', 1952),
     (NULL, 'IPL', 1954),
@@ -132,7 +132,7 @@ INSERT INTO `plang`.`lang` (`idlang`, `designation`, `created`) VALUES
     (NULL, 'TypeScript', 2012),
     (NULL, 'Swift', 2014);
 
-INSERT INTO `plang`.`author` (`idauthor`, `firstname`, `surname`, `company`) VALUES
+INSERT INTO plang.author (idauthor, firstname, surname, company) VALUES
     (NULL, 'John', 'Backus', NULL),
     (NULL, 'Friedrich L.', 'Bauer', NULL),
     (NULL, 'Kathleen', 'Booth', NULL),
@@ -174,34 +174,34 @@ INSERT INTO `plang`.`author` (`idauthor`, `firstname`, `surname`, `company`) VAL
     (NULL, 'Philip', 'Wadler', NULL),
     (NULL, 'Niklaus', 'Wirth', NULL),
     (NULL, 'Stephen', 'Wolfram', NULL);
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'FORTRAN' AND `author`.`surname` = 'Backus'; 
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'FORTRAN' AND author.surname = 'Backus'; 
 
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'ALGOL 58' AND `author`.`surname` = 'Bauer';
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'ALGOL 58' AND author.surname = 'Bauer';
 
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'Newspeak' AND `author`.`surname` = 'Bracha';
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'Newspeak' AND author.surname = 'Bracha';
 
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'Prolog' AND `author`.`surname` = 'Colmerauer';
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'Prolog' AND author.surname = 'Colmerauer';
 
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'JavaScript' AND `author`.`surname` = 'Eich';
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'JavaScript' AND author.surname = 'Eich';
 
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'Java' AND `author`.`surname` = 'Gosling';
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'Java' AND author.surname = 'Gosling';
 
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'COBOL' AND `author`.`surname` = 'Hopper';
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'COBOL' AND author.surname = 'Hopper';
 
-INSERT INTO `plang`.`createdby` (`idcreatedby`,  `lang_idlang`, `author_idauthor`)
-    SELECT NULL, `lang`.`idlang`, `author`.`idauthor` FROM `lang`, `author`
-    WHERE `lang`.`designation` = 'Smalltalk' AND `author`.`surname` = 'Kay';
+INSERT INTO plang.createdby (idcreatedby,  lang_idlang, author_idauthor)
+    SELECT NULL, lang.idlang, author.idauthor FROM lang, author
+    WHERE lang.designation = 'Smalltalk' AND author.surname = 'Kay';

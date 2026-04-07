@@ -3,7 +3,7 @@
 -- --------------------------------------------------------------------------------
 SELECT COUNT(created) AS pocet
 FROM plang.lang
-WHERE created=1995;
+WHERE NOT created >= 1980 AND created <= 2000;
 
 -- --------------------------------------------------------------------------------
 -- AVG - agregační funkce vrací průměrnou hodnotu ve vybraném numerickém sloupci

@@ -1,0 +1,1 @@
+DELETE FROM plang.lang WHERE idlang = 1; 
